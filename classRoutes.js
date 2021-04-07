@@ -21,7 +21,7 @@ router.get('/create', function (req, res) {
 })
 router.post('/api/create', function (req, res) {
   console.log('Creating the following student:', req.body.student)
-  classList.push(req.body.student)
+  classList.push({ name: req.body.student, stdnum: req.body.stdnum, course: req.body.course })
   res.redirect(req.baseUrl + '/api/list')
 })
 
@@ -38,8 +38,21 @@ router.get('/edit', function (req, res) {
   res.sendFile(path.join(__dirname, 'views', 'class', 'edit.html'))
 })
 router.post('/api/edit', function (req, res) {
-  console.log('editing a student entry')
-  classList[req.body.id] = req.body.student
+  console.log('editing a student entry', req.body.course)
+  if (req.body.student !== '') {
+    console.log('editing the name')
+    classList[req.body.id].name = req.body.student
+  }
+  if (req.body.course !== '') {
+    console.log('editing the course')
+    classList[req.body.id].course = req.body.course
+  }
+  if (req.body.course === '' && req.body.student === '') {
+    const temp = classList[req.body.id]
+    console.log('removing a course')
+    classList.splice(req.body.id, 1, { name: temp.name, stdnum: temp.stdnum })
+  }
+
   res.redirect(req.baseUrl + '/api/list')
 })
 /** ******************************* */

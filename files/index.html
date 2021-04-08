@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html>
     <head>
-        <title>Class List</title>
-        <meta charset="utf-8" />
-        <script defer src="index.js"></script>
     </head>
     <body>
-        <h1 id="heading">Students in the School of EIE:</h1>
-        <div> Display students
-            <button type="button" id="dispButton">disp</button>
+        <h1>Class List</h1>
+        <!-- 'input' is an empty element, it consists of single tag -->
+        <input type="text" id="search-text" placeholder="Filter students">
+        <div id="students">
         </div>
-        <div id="studentList"></div>
-        <div id = 'button2'> Erase all list
-            <button type="button" id="eraseButton">erase</button>
-        </div>
+        <input type="text" id="new-student-text" placeholder="Name">
+        <button id="add-student">Add new student</button>
+        <script src="class-list-app.js">
+        </script>
     </body>
 </html>
+<!-- See https://developer.mozilla.org/en-US/docs/Web/HTML -->
+<!-- Note the reference guide: -->
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference -->

@@ -22,22 +22,25 @@ fetch('/class/api/list') // Returns a Promise for the GET request
       li.appendChild(liText)
       classList.appendChild(li)
     })
-    // add a new student
-    const addButton = document.getElementById('button')
-    if (addButton) {
-      addButton.addEventListener('click', () => {
-        const StudName = document.getElementById('newStudentInput').value
-        // data.push({ name: StudName, stdnum: '**********', course: '**********' })
-        /* ************************* */
-        const li = document.createElement('LI')
-        const liText = document.createTextNode(StudName + ' - ' + '**********' + ' - ' + '**********')
-        // Append the class to the list element
-        li.className += 'student'
-        // Append list text to list item and list item to list
-        li.appendChild(liText)
-        classList.appendChild(li)
-      }, false)
-    }
+
+    const but = document.getElementById('addStudentButton')
+    but.className = 'btn-primary'
+    // // add a new student
+    // const addButton = document.getElementById('button')
+    // if (addButton) {
+    //   addButton.addEventListener('click', () => {
+    //     const StudName = document.getElementById('newStudentInput').value
+    //     // data.push({ name: StudName, stdnum: '**********', course: '**********' })
+    //     /* ************************* */
+    //     const li = document.createElement('LI')
+    //     const liText = document.createTextNode(StudName + ' - ' + '**********' + ' - ' + '**********')
+    //     // Append the class to the list element
+    //     li.className += 'student'
+    //     // Append list text to list item and list item to list
+    //     li.appendChild(liText)
+    //     classList.appendChild(li)
+    //   }, false)
+    // }
   })
   .catch(function (e) { // Process error for request
     alert(e) // Displays a browser alert with the error message.
@@ -45,20 +48,3 @@ fetch('/class/api/list') // Returns a Promise for the GET request
     // response code is the reason for jumping to this
     // catch() function.
   })
-
-// add a new student
-const addButton = document.getElementById('button')
-if (addButton) {
-  addButton.addEventListener('click', () => {
-    const StudName = document.getElementById('newStudentInput').value
-    // data.push({ name: StudName, stdnum: '**********', course: '**********' })
-    /* ************************* */
-    const li = document.createElement('LI')
-    const liText = document.createTextNode(StudName + ' - ' + '**********' + ' - ' + '**********')
-    // Append the class to the list element
-    li.className += 'student'
-    // Append list text to list item and list item to list
-    li.appendChild(liText)
-    classList.appendChild(li)
-  }, false)
-}
